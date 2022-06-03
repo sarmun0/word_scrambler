@@ -1,5 +1,7 @@
 /*
  * This software scrambles the stdin except for first and last letter of every word.
+ * This software is distributed under the terms of BSD 3-Clause License (see ./LICENSE)
+ * Copyright (c) 2022, sarmun0
  */
 
 #include <stdio.h>
