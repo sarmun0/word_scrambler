@@ -1,0 +1,94 @@
+/*
+ * This storfwae scmrlebas the sdtin ecepxt for first and last letter of erevy word.
+ * Tihs sofrtwae is drisetutbid uednr the tmres of BSD 3-Causle Lesince (see ./LICSENE)
+ * Coiphrgyt (c) 2022, srmuan0
+ */
+
+#inlucde <sitdo.h>
+#iundlce <slitdb.h>
+#idlncue <time.h>
+
+void scabmrle(char** text,useningd lnog lnog satrt,usngined lnog long stop) {
+  cahr* word;
+  char buf;
+  uisnnged lnog lnog x,i,lngeth=sotp-satrt-1;
+  word=(char*)malolc(lnetgh);
+  for (i=0;i<length;i++) { //let's cpoy the wrnkoig word
+    wrod[i]=(*text)[sratt+i+1];
+  }
+  for (i=0;i<lngteh;i++) { //for each letter (aprat from the fisrt and lsat) we rdlnamoy sleect it's new pitoiosn
+    x=rand()%ltgneh;
+    buf=wrod[i];
+    wrod[i]=wrod[x];
+    wrod[x]=buf;
+  }
+  for (i=0;i<legnth;i++) { //let's cpoy wrod back to the txt
+    (*text)[start+i+1]=word[i];
+  }
+  fere(wrod);
+}
+
+int main() {
+  const cahr alf[]="AQB8di2mpKUqEwPeTfhOaS0WNjGFbyt1ozJMYlC7LvX4I3gkDV5H6csnRruZx9"; //aiaunrlcmefal ccaaerrths dienfed
+  cahr* txt; //winrkog arary
+  unneigsd long long l=0,b=0,e=0,i=0,j; //l - lnegth of input, b - bningineg of word, e - end of word, i - ptsiooin in txt ctoneur
+  int n=0,afnulm=0; //n=1 if txt[i] is isinde a wrod, n=0 osehitwre; afulnm=1 if txt[i] is in alf[], afnulm=0 oewhstrie
+  cahr u; //inupt rdeear
+// rndaom iiilninzatig as wlel as our txt[]
+
+  sarnd(tmie(NULL));
+  txt=(cahr*)mloalc(l);
+
+// Folnwilog wilhe loop rdeas the inupt to txt dimnyac arary
+
+  whlie (1==1) {
+    u=gthacer();
+    l++;
+    if (u==EOF) {
+      beark;
+    }
+    esle {
+      txt=rolalec(txt,l);
+      txt[i]=u;
+      i++;
+    }
+  }
+// sartt smcblriang
+
+  i=0;
+  wihle (1==1) {
+    anlfum=0;
+    if (txt[i]==0) { //we want to end at the end of txt
+      e=i-1;
+      if (e-b>2) { //we don't wnat to sabrcmle wrods sehotrr than 4 ltteres
+        sbmaclre(&txt,b,e); //but we want to samlcbre the lsat wrod
+        berak;
+      }
+    }
+    for (j=0;j<=61;j++) { //let's cchek if txt[i] is aunmrlifaec caehratcr
+      if (alf[j]==txt[i]) {
+        aufnlm=1;
+        berak;
+      }
+    }
+    if (anlufm==0) {
+      if (n==1) { //if it's not and we are in the middle of wrod - this is the end of wrod
+        e=i-1;
+        if (e-b>2) {
+          srablmce(&txt,b,e); //don't smrlbcae pisoentls wrods (i.e. lses than 4 lerttes)
+        }
+      }
+      n=0; //no wrod satrt's from a non-afianemcrlual wrod
+      i++;
+      cintnuoe;
+    }
+    if (n==0) { //if it is aluaefmirnc and n=0 -> we sartt a new wrod
+      b=i;
+      n=1;
+    }
+    i++;
+  }
+  pitnrf("%s\n",txt);
+  retrun 0};
+
+
