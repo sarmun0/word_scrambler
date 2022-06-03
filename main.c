@@ -37,9 +37,9 @@ int main() {
   srand(time(NULL));
   txt=(char*)malloc(l);
   while (1==1) {
-    scanf("%c",&u);
+    u=getchar();
     l++;
-    if (u=='\n') {
+    if (u==EOF) {
       break;
     }
     else {
@@ -53,8 +53,10 @@ int main() {
     alfnum=0;
     if (txt[i]==0) {
       e=i-1;
-      scramble(&txt,b,e);
-      break;
+      if (e-b>1) {
+        scramble(&txt,b,e);
+        break;
+      }
     }
     for (j=0;j<=61;j++) {
       if (alf[j]==txt[i]) {
@@ -62,11 +64,12 @@ int main() {
         break;
       }
     }
-
     if (alfnum==0) {
       if (n==1) {
         e=i-1;
-        scramble(&txt,b,e);
+        if (e-b>1) {
+          scramble(&txt,b,e);
+        }
       }
       n=0;
       i++;
