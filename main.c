@@ -53,7 +53,7 @@ int main() {
     alfnum=0;
     if (txt[i]==0) {
       e=i-1;
-      if (e-b>1) {
+      if (e-b>2) {
         scramble(&txt,b,e);
         break;
       }
@@ -67,7 +67,7 @@ int main() {
     if (alfnum==0) {
       if (n==1) {
         e=i-1;
-        if (e-b>1) {
+        if (e-b>2) {
           scramble(&txt,b,e);
         }
       }
